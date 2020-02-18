@@ -23,9 +23,17 @@
       %button#button-addon2.btn.btn-outline-secondary{:type => "button"}
         = icon('fas', 'search') 
     -# 検索窓終わり
-    .login-form
-      = link_to new_user_registration_path, class: "login-item" do
-        新規登録
-      = link_to new_user_session_path, class: "login-item" do
-        ログイン
+
+    .home__contents.d-flex
+      .card{:style => "width: 20rem;"}
+        .card-body
+          %h5.card-title 今月の読了数
+          %p.card-text 15
+          %a.btn.btn-primary{:href => "#"} 詳細
+
+      .card{:style => "width: 20rem;"}
+        .card-body
+          %h5.card-title 現在の積読数
+          %p.card-text 50
+          %a.btn.btn-primary{:href => "#"} 詳細
 

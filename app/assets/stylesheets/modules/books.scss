@@ -27,11 +27,37 @@
 
 .top-wrapper{
   padding-top: 65px;
+  
 }
 
-#home{
+.home{
   background-image: url("https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80");
   background-size: cover;
   height: 700px;
+  position: relative;
+  .search-box{
+    width: 65%;
+    position: absolute;
+    top: 25%;
+    left: 17%;
+  }
+
+  &__contents{
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    
+  }
+
+  .login-form{
+    text-align: center;
+    line-height: 700px;
+    .login-item{
+      text-decoration: none;
+      color: white;
+      margin-left: 20px;
+    }
+  }
 }
 
