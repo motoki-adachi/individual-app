@@ -1,0 +1,37 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header{
+  height: 65px;
+  width: 100vw;
+  background-image: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+  background-size: cover;
+  position: fixed;
+  z-index: 1;
+  padding: 0 20px;
+  line-height: 65px;
+  color: white;
+  &__logo{
+    font-size: 30px;
+  }
+  &__contents{
+
+    .header-item{
+      text-decoration: none;
+      color: white;
+      margin-left: 20px;
+    }
+  }
+}
+
+.top-wrapper{
+  padding-top: 65px;
+}
+
+#home{
+  background-image: url("https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80");
+  background-size: cover;
+  height: 700px;
+}
+
