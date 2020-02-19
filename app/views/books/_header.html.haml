@@ -1,0 +1,22 @@
+.header.d-flex.justify-content-between
+  .header__logo タイトル未定
+
+  .header__contents.d-flex
+    .header__contents__regist
+      = link_to "#", class: "header__contents__regist--book header-item" do
+        本を登録する
+
+
+  .header__contents.d-flex
+    - if user_signed_in?
+      .header__contents__name.header-item
+        = current_user.name
+      = link_to users_path(current_user), class: "header__contents__user-show header-item" do
+        マイページ
+      = link_to destroy_user_session_path, class: "header__contents__loout header-item", method: 'delete' do
+        ログアウト
+    - else
+      = link_to new_user_registration_path, class: "header__contents__signup header-item" do
+        新規登録
+      = link_to new_user_session_path, class: "header__contents__login header-item" do
+        ログイン

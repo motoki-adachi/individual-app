@@ -1,18 +1,4 @@
-.header.d-flex.justify-content-between
-  .header__logo タイトル未定
-  .header__contents.d-flex
-    - if user_signed_in?
-      .header__contents__name.header-item
-        = current_user.name
-      = link_to "#", class: "header__contents__user-show header-item" do
-        マイページ
-      = link_to destroy_user_session_path, class: "header__contents__loout header-item", method: 'delete' do
-        ログアウト
-    - else
-      = link_to new_user_registration_path, class: "header__contents__signup header-item" do
-        新規登録
-      = link_to new_user_session_path, class: "header__contents__login header-item" do
-        ログイン
+= render partial: 'books/header'
 
 .top-wrapper
   .home
@@ -20,7 +6,7 @@
     .input-group.mb-3.search-box
       %input.form-control{"aria-describedby" => "button-addon2", "aria-label" => "Recipient's username", :placeholder => "本を検索", :type => "text"}/
       .input-group-append
-      %button#button-addon2.btn.btn-outline-secondary{:type => "button"}
+      %button#button-addon2.btn.btn-success{:type => "button"}
         = icon('fas', 'search') 
     -# 検索窓終わり
     .login-form
@@ -28,4 +14,3 @@
         新規登録
       = link_to new_user_session_path, class: "login-item" do
         ログイン
-

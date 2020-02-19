@@ -1,0 +1,28 @@
+= render partial: 'books/header'
+
+.top-wrapper
+  %ul#myTab.nav.nav-tabs{:role => "tablist"}
+    %li.nav-item
+      %a#home-tab.nav-link.active{"aria-controls" => "home", "aria-selected" => "true", "data-toggle" => "tab", :href => "#home", :role => "tab"} ジャンル別
+    %li.nav-item
+      %a#profile-tab.nav-link{"aria-controls" => "profile", "aria-selected" => "false", "data-toggle" => "tab", :href => "#profile", :role => "tab"} 作者別
+    %li.nav-item
+      %a#contact-tab.nav-link{"aria-controls" => "contact", "aria-selected" => "false", "data-toggle" => "tab", :href => "#contact", :role => "tab"} 未定
+  #myTabContent.tab-content
+    #home.tab-pane.fade.show.active{"aria-labelledby" => "home-tab", :role => "tabpanel"}
+      .row
+        .col-3
+          #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}
+            %a#v-pills-home-tab.nav-link.active{"aria-controls" => "v-pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#v-pills-home", :role => "tab"} 未定
+            %a#v-pills-profile-tab.nav-link{"aria-controls" => "v-pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-profile", :role => "tab"} 未定
+            %a#v-pills-messages-tab.nav-link{"aria-controls" => "v-pills-messages", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-messages", :role => "tab"} 未定
+            %a#v-pills-settings-tab.nav-link{"aria-controls" => "v-pills-settings", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-settings", :role => "tab"} 未定
+        .col-9
+          #v-pills-tabContent.tab-content
+            #v-pills-home.tab-pane.fade.show.active.p1.graph{"aria-labelledby" => "v-pills-home-tab", :role => "tabpanel"} ...
+            #v-pills-profile.tab-pane.fade.p2.graph{"aria-labelledby" => "v-pills-profile-tab", :role => "tabpanel"} ...
+            #v-pills-messages.tab-pane.fade.p3.graph{"aria-labelledby" => "v-pills-messages-tab", :role => "tabpanel"} ...
+            #v-pills-settings.tab-pane.fade.p4.graph{"aria-labelledby" => "v-pills-settings-tab", :role => "tabpanel"} ...
+
+    #profile.tab-pane.fade{"aria-labelledby" => "profile-tab", :role => "tabpanel"} ...
+    #contact.tab-pane.fade{"aria-labelledby" => "contact-tab", :role => "tabpanel"} ...

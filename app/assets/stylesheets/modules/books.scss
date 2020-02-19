@@ -47,7 +47,9 @@
     position: absolute;
     top: 50%;
     left: 25%;
-    
+    .card-text{
+      font-size: 40px;
+    }
   }
 
   .login-form{
@@ -61,3 +63,25 @@
   }
 }
 
+
+// あとで消す
+.graph{
+  height: 400px;
+  width: 100vw;
+}
+
+.p1{
+  background-color: blue;
+}
+
+.p2{
+  background-color: red;
+}
+
+.p3{
+  background-color: green;
+}
+
+.p4{
+  background-color: yellow;
+}
