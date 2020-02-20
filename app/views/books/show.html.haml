@@ -9,7 +9,8 @@
     .book-wrapper__left--title.mt-3
       .card{:style => "width: 25rem;"}
         %ul.list-group.list-group-flush
-          %li.list-group-item タイトル
+          %li.list-group-item
+            = @book.title
           
 
     .book-wrapper__left--author.mt-3
@@ -17,7 +18,7 @@
         %ul.list-group.list-group-flush
           %li.list-group-item
             = link_to author_path, class: ".list-group-item__author" do
-              作者名
+              = @book.author.name
 
     .book-wrapper__left--btn.d-flex.flex-column
       %button.btn.btn-primary.btn-lg.mt-3{:type => "button", :style => "width: 15rem;"} 読了本に登録

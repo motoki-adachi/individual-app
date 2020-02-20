@@ -1,1 +1,28 @@
 = render partial: 'books/header'
+
+.books-form
+  .books-form__contents
+    %form
+      .form-group
+        %label{:for => "exampleFormControlInput1"} タイトル
+        %input#exampleFormControlInput1.form-control{:placeholder => "本のタイトルを入力してください", :type => "string"}/
+      .form-group
+        %label{:for => "exampleFormControlInput1"} 作者名
+        %input#exampleFormControlInput1.form-control{:placeholder => "本の作者名を入力してください", :type => "string"}/
+      .form-group
+        %label{:for => "exampleFormControlInput1"} 画像
+        %input#exampleFormControlInput1.form-control{:placeholder => "本の画像を挿入してください", :type => "string"}/
+      .form-group
+        %label{:for => "exampleFormControlSelect1"} ジャンル
+        %select#exampleFormControlSelect1.form-control
+          - @genres.each do |genre|
+            %option 
+              = genre.genre
+      .form-group
+        %label{:for => "exampleFormControlSelect1"} 出版社
+        %select#exampleFormControlSelect1.form-control
+          - @publisher.each do |publisher|
+            %option 
+              = publisher.publisher
+      .form-group
+        %button.btn.btn-primary.btn-lg{:type => "button"} 登録する

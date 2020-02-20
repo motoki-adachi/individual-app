@@ -7,12 +7,16 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
   
   def new
     @book = Book.new
+    @genres = Genre.all
+    @publisher = Publisher.all
   end
 
   def create
   end
+
 end
