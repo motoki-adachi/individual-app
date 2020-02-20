@@ -1,0 +1,127 @@
+= render partial: 'books/header'
+
+.book-wrapper.d-flex
+
+  .book-wrapper__left
+    .book-wrapper__left--image
+      %img.img-fluid{:alt => "Responsive image",:style => "width: 25rem;", :src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+
+    .book-wrapper__left--title.mt-3
+      .card{:style => "width: 25rem;"}
+        %ul.list-group.list-group-flush
+          %li.list-group-item タイトル
+          
+
+    .book-wrapper__left--author.mt-3
+      .card{:style => "width: 25rem;"}
+        %ul.list-group.list-group-flush
+          %li.list-group-item
+            = link_to author_path, class: ".list-group-item__author" do
+              作者名
+
+    .book-wrapper__left--btn.d-flex.flex-column
+      %button.btn.btn-primary.btn-lg.mt-3{:type => "button", :style => "width: 15rem;"} 読了本に登録
+      %button.btn.btn-primary.btn-lg.mt-3{:type => "button", :style => "width: 15rem;"} 積読本に登録
+      %button.btn.btn-primary.btn-lg.mt-3{:type => "button", :style => "width: 15rem;"} 欲しい本に登録
+
+
+  .book-wrapper__right
+    .book-wrapper__right--relation.row
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+      .book-wrapper__right--relation--item.col-3
+        %img.item-image{:src => "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"}/
+        %p.book-wrapper__right--relation--item--title タイトル
+        %p.book-wrapper__right--relation--item--genre ジャンル
+
+    .book-wrapper__right--review
+      .book-wrapper__right--review--content
+        %p.book-wrapper__right--review--content--name user.name
+        %p.book-wrapper__right--review--content--text テスト
+        %p.book-wrapper__right--review--content--created 2020/02/19
+
+      .book-wrapper__right--review--content
+        %p.book-wrapper__right--review--content--name user.name
+        %p.book-wrapper__right--review--content--text テスト
+        %p.book-wrapper__right--review--content--created 2020/02/19
+
+      .book-wrapper__right--review--content
+        %p.book-wrapper__right--review--content--name user.name
+        %p.book-wrapper__right--review--content--text テスト
+        %p.book-wrapper__right--review--content--created 2020/02/19
+
+
+

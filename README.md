@@ -103,7 +103,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :books
-- has.many :book_genres
+- has_many :book_genres
 
 ## publishersテーブル
 
@@ -112,7 +112,7 @@ Things you may want to cover:
 |publisher|string|null: false|
 
 ### Association
-- has_many :book
+- has_many :books
 
 
 ## book_genresテーブル
