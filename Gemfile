@@ -70,3 +70,5 @@ gem 'font-awesome-sass'
 gem 'bootstrap'
 gem 'jquery-rails'
 # gem "jquery-ui-rails"
+
+gem 'twitter'

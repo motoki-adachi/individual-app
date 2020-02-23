@@ -108,21 +108,9 @@
         %p.book-wrapper__right--relation--item--title タイトル
         %p.book-wrapper__right--relation--item--genre ジャンル
 
+
     .book-wrapper__right--review
-      .book-wrapper__right--review--content
-        %p.book-wrapper__right--review--content--name user.name
-        %p.book-wrapper__right--review--content--text テスト
-        %p.book-wrapper__right--review--content--created 2020/02/19
-
-      .book-wrapper__right--review--content
-        %p.book-wrapper__right--review--content--name user.name
-        %p.book-wrapper__right--review--content--text テスト
-        %p.book-wrapper__right--review--content--created 2020/02/19
-
-      .book-wrapper__right--review--content
-        %p.book-wrapper__right--review--content--name user.name
-        %p.book-wrapper__right--review--content--text テスト
-        %p.book-wrapper__right--review--content--created 2020/02/19
-
-
-
+      - @tweet.each do |tweet|
+        %blockquote.twitter-tweet.tw-align-center{"data-cards" => "hidden", "data-lang" => "ja"}
+          = link_to '',tweet[:tweet_link], target: :_blank
+      = javascript_include_tag '//platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async'
