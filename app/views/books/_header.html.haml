@@ -1,6 +1,29 @@
 .header.d-flex.justify-content-between
   .header__logo タイトル未定
 
+  .search-box
+    = form_with url: users_path, method: :get, local: true do |f|
+      .search-box__form.d-flex
+        .search-box__form--text
+          = f.text_field :keyword, placeholder: 'キーワードを入力してください', class: "form-control mr-sm-2"
+        .search-box__form--btn
+          = f.submit :Search, class: "btn btn-outline-dark my-2 my-sm-0"
+
+  -# .search-box
+  -# %nav.navbar.navbar-light.d-flex
+  -# %form.form-inline{:action => "http://www.google.co.jp/search", :method => "get"}
+  -#   %table
+  -#     %tr{:valign => "top"}
+  -#       %td.d-flex
+  -#         %input.form-control.mr-sm-2{:maxlength => "255", :name => "q", :size => "31", :type => "text", :value => "", "aria-label" => "Search", :placeholder => "Search"}/
+  -#         %input{:name => "ie", :type => "hidden", :value => "utf-8"}/
+  -#         %input{:name => "oe", :type => "hidden", :value => "utf-8"}/
+  -#         %input{:name => "hl", :type => "hidden", :value => "ja"}/
+  -#         %select.search-list.mr-2
+  -#           %option{:name => "sitesearch", :value => "http://www.google.co.jp/search"} Google検索
+  -#           %option{:name => "sitesearch", :value => "http://www.google.co.jp/search"} サイト内検索
+  -#         %input.btn.btn-outline-dark.my-2.my-sm-0{:name => "btnG", :type => "submit", :value => "Search"}/
+
   .header__contents.d-flex
     .header__contents__regist
       = link_to new_book_path, class: "header__contents__regist--book header-item" do
@@ -11,7 +34,7 @@
     - if user_signed_in?
       .header__contents__name.header-item
         = current_user.name
-      = link_to users_path(current_user), class: "header__contents__user-show header-item" do
+      = link_to user_path(current_user), class: "header__contents__user-show header-item" do
         マイページ
       = link_to destroy_user_session_path, class: "header__contents__loout header-item", method: 'delete' do
         ログアウト

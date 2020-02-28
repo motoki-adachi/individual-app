@@ -1,0 +1,31 @@
+= render partial: 'books/header'
+
+
+.books-form
+  = form_for(@register, url: "/registers/#{@book.id}/register_create") do |f|
+    .books-form__contents
+      .books-form__contents__item
+        = f.label :タイトル, for: "select1", class: "input-value"
+        = @book.title
+      .books-form__contents__item
+        = f.label :著者, for: "select2", class: "input-value"
+        = @book.author.name
+      .books-form__contents__item
+        = f.label :ジャンル, for: "select3", class: "input-value"
+      .books-form__contents__item
+        = f.label :出版社, for: "select4", class: ".input-value"
+        = @book.publisher.publisher
+      .form-check.books-form__contents__item
+        %input#exampleRadios1.form-check-input{:checked => "checked", :name => "register[status]", :type => "radio", :value => "1"}/
+        = f.label :読んだ本に登録する, for: "exampleRadios1", class: "form-check-label"
+      .form-check.books-form__contents__item
+        %input#exampleRadios1.form-check-input{:name => "register[status]", :type => "radio", :value => "2"}/
+        = f.label :積読本に登録する, for: "exampleRadios1", class: "form-check-label"
+      .form-check.books-form__contents__item
+        %input#exampleRadios1.form-check-input{:name => "register[status]", :type => "radio", :value => "3"}/
+        = f.label :欲しい本に登録する, for: "exampleRadios1", class: "form-check-label"
+
+      .books-form__contents__item
+        = f.submit :登録する, class: "submit"
+
+

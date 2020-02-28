@@ -21,6 +21,6 @@
       .books-form__contents__item
         = f.label :出版社, for: "select4", class: ".input-value"
         .books-form__contents__item--publisher
-        = f.select :publisher_id, Publisher.all.map{|p| [p.publisher, p.id]}, id: "select4 publish-select"
+        = f.select :publisher_id, Publisher.all.map{|j| [j.publisher, j.id]}, id: "select4 publish-select"
       .books-form__contents__item
         = f.submit :登録する, class: "submit"

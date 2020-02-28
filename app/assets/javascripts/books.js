@@ -2,34 +2,22 @@ $(function(){
 
   function addAuthor(author){
     let html = `
-    <div class="test-contents">
-      <div class="books-form__contents">${author.name}</div>
-      <div class="author-search-add author__btn--add" data-author-id="${author.id}" data-author-name="${author.name}">追加</div>
+    <div class="book-search">
+      <div class="book-search__name">${author.name}</div>
+      <div class="book-search__item author__btn--add" data-author-id="${author.id}" data-author-name="${author.name}">追加</div>
     </div>`;
     $('#author-search-result').append(html);
   }
 
   function addNoAuthor(){
-    let html = `<div class=".books-form__contents">ユーザーが見つかりません</div>`;
+    let html = `
+    <div class="book-search">
+      <div class="book-search__name">著者が見つかりません</div>
+    </div>`;
     $('#author-search-result').append(html);
   }
 
-
-  // function addToUser(name, id){
-  //   let html = `<div class="chat-group-user clearfix" id="${id}">
-  //                 <p class="chat-group-user__name">${name}</p>
-  //                 <div class="user-search-add chat-group-user__btn chat-group-user__btn--remove" data-user-id="${id}" data-user-name="${name}">削除</div>
-  //               </div>`;
-  //   $('#chat-group-users').append(html);
-  // }
-
-  // function addMember(dataId) {
-  //   let html = `<input value="${dataId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${dataId}" />`;
-  //   $(`#${dataId}`).append(html);
-  // }
-
-
-
+  // 登録時の著者インクリメンタルサーチ実装部分--bigin--
 
   $('#author_search_field').on('keyup', function(){
     let input = $('#author_search_field').val();
@@ -60,9 +48,10 @@ $(function(){
 
     let dataId = $(this).attr('data-author-id');
     let dataName = $(this).attr('data-author-name');
-    $(this).parent().remove();
     $('#author_search_field').val(dataId);
-  });
+    $('.book-search').parent().remove();
 
+  });
+  // 登録時の著者インクリメンタルサーチ実装部分--end--
 });
 

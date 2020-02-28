@@ -1,25 +1,5 @@
-= render partial: 'books/header'
+-# = render partial: 'books/header'
 
-.top-wrapper
-  .home
-    -# 検索窓
-    .input-group.mb-3.search-box
-      %input.form-control{"aria-describedby" => "button-addon2", "aria-label" => "Recipient's username", :placeholder => "本を検索", :type => "text"}/
-      .input-group-append
-      %button#button-addon2.btn.btn-success{:type => "button"}
-        = icon('fas', 'search') 
-    -# 検索窓終わり
-
-    .home__contents.d-flex
-      .card{:style => "width: 20rem;"}
-        .card-body
-          %h5.card-title 今月の読了数
-          %p.card-text 15
-          %a.btn.btn-primary{:href => user_path(current_user)} 詳細
-
-      .card{:style => "width: 20rem;"}
-        .card-body
-          %h5.card-title 現在の積読数
-          %p.card-text 50
-          %a.btn.btn-primary{:href => user_path(current_user)} 詳細
-
+- @books.each do |book|
+  .test
+    = book.title

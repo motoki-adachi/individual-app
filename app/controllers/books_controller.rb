@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :move_to_index, expect: [:index]
+  before_action :sign_in_vaild, only: [:index]
   require 'open-uri'
 
   def top
@@ -11,6 +13,13 @@ class BooksController < ApplicationController
   end
 
   def index
+    return nil if params[:keyword] == ""
+    @books = Book.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
   end
 
   def show
@@ -29,14 +38,25 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to book_path(@book)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private
 
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def sign_in_vaild
+    redirect_to user_path(current_user) if user_signed_in?
+  end
+
+
   def tweet_search(keyword)
-    # ツイート検索のオプションを記入
     twitter_params = { count: 100, lang: 'ja', result_type: 'recent', exclude: 'retweets', tweet_mode: 'extended' }
     begin
       @tweets = twitterClient.search("#読了 AND #{keyword}", **twitter_params).take(10).map do |tweet|
@@ -62,5 +82,4 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :author_id, :genre_id, :publisher_id)
 
   end
-
 end

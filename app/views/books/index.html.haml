@@ -2,13 +2,6 @@
 
 .top-wrapper
   .home
-    -# 検索窓
-    .input-group.mb-3.search-box
-      %input.form-control{"aria-describedby" => "button-addon2", "aria-label" => "Recipient's username", :placeholder => "本を検索", :type => "text"}/
-      .input-group-append
-      %button#button-addon2.btn.btn-success{:type => "button"}
-        = icon('fas', 'search') 
-    -# 検索窓終わり
     .login-form
       = link_to new_user_registration_path, class: "login-item" do
         新規登録

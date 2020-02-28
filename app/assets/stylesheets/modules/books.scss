@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header{
-  height: 65px;
+  height: 50px;
   width: 100vw;
   background-image: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
   background-size: cover;
   position: fixed;
   z-index: 1;
   padding: 0 20px;
-  line-height: 65px;
+  line-height: 50px;
   color: white;
   &__logo{
     font-size: 30px;
@@ -27,8 +27,11 @@
 
 .top-wrapper{
   padding-top: 65px;
-  
+  background:  linear-gradient(-225deg, rgba(251, 252, 252, 0.7) 10%, rgba(248, 248, 248, 0.7) 80%),
+  url("https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
+  background-size: cover;
 }
+
 
 .home{
   background-image: url("https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80");
@@ -40,16 +43,6 @@
     position: absolute;
     top: 25%;
     left: 17%;
-  }
-
-  &__contents{
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    .card-text{
-      font-size: 40px;
-    }
   }
 
   .login-form{
@@ -65,73 +58,9 @@
 
 
 // あとで消す
-.graph{
-  height: 400px;
-  width: 100vw;
-}
-
-.p1{
-  background-color: blue;
-}
-
-.p2{
-  background-color: red;
-}
-
-.p3{
-  background-color: green;
-}
-
-.p4{
-  background-color: yellow;
-}
-
-.book-wrapper{
-  padding: 100px 0 0 30px;
-  background-image: url("https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
-  background-size: cover;
-  &__right{
-    height: 100vh;
-    width: 100vw;
-    padding: 0 50px;
-    &--relation{
-      height: calc(100vh - 50%);
-      padding:20px;
-      font-size: 35px;
-      overflow: scroll;
-      background-color: gainsboro;
-      &--item{
-        .item-image{
-          height: 150px;
-          width: 150px;
-        }
-
-        &--title{
-          font-size: 20px;
-        }
-        &--genre{
-          font-size: 15px;
-        }
-      }
-
-    }
-
-    &--review{
-      height: calc(100vh - 70%);
-      background-color: gainsboro;
-      margin-top: 20px;
-      padding: 15px ;
-      overflow: scroll;
-      &--content{
-        border: 1px solid #000;
-        margin-bottom: 15px;
-      }
-    }
-  }
-}
 
 .books-form{
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url("https://images.unsplash.com/photo-1463320726281-696a485928c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   background-size: cover;
@@ -139,7 +68,8 @@
   color: white;
 
   &__contents{
-    width: 60%;
+    width: 600px;
+    height: 600px;
     margin: 0 auto;
 
     &__item{
@@ -186,12 +116,112 @@
   border-bottom: none;
 }
 
+#author-search-result{
+  height: 80px;
+  overflow: scroll;
+  .book-search{
+    padding-left: 50px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    &__item{
+      cursor: pointer;
+    }
+  }
+}
 
 
-// .test_layout{
-//   border: 1px solid #000;
-//   width: 250px;
-//   height: 30px;
-//   background-color: white;
-//   margin-left: 40px;
-// }
+
+.tab-content{
+  .home__contents{
+  margin: 10px;
+    .card{
+      margin-bottom: 15px;
+      .card-body{
+        display: flex;
+        justify-content: space-between;
+        height: 150px;
+        .card-text{
+          font-size: 80px;
+        }
+      }
+      }
+  }
+}
+
+.row{
+  position: relative;
+  .home-contents{
+    position: absolute;
+  }
+}
+
+
+.book-wrapper{
+  padding: 100px 0 0 30px;
+  background-image: url("https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
+  background-size: cover;
+  &__left{
+    
+    &--btn{
+    }
+  }
+
+
+
+
+  &__right{
+    height: 100vh;
+    width: 100vw;
+    padding: 0 50px;
+    &--relation{
+      height: calc(100vh - 50%);
+      padding:20px;
+      font-size: 35px;
+      overflow: scroll;
+      background-color: gainsboro;
+      &--item{
+        .item-image{
+          height: 150px;
+          width: 150px;
+        }
+
+        &--title{
+          font-size: 20px;
+        }
+        &--genre{
+          font-size: 15px;
+        }
+      }
+
+    }
+
+    &--review{
+      height: calc(100vh - 70%);
+      background-color: gainsboro;
+      margin-top: 20px;
+      padding: 15px ;
+      overflow: scroll;
+      &--content{
+        border: 1px solid #000;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.reading-contents{
+  height: 500px;
+  .chart{
+
+    width: 500px;
+  }
+  &__index{
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+}
+
