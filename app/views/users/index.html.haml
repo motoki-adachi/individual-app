@@ -1,5 +1,43 @@
--# = render partial: 'books/header'
+= render partial: 'books/header'
 
-- @books.each do |book|
-  .test
-    = book.title
+
+
+.books-search
+  .books-search__result
+    %h1.books-search__result--left
+      = "検索結果#{@search_count}件HITしました。"
+    .books-search__result--right
+      お探しの本が無い場合 →
+      %a.btn-text-3d{:href => new_book_path }
+        本を登録する
+
+  .book-search__lists
+    - if @books.length != 0
+      %table.table.table-striped
+        %thead
+          %tr
+            %th{:scope => "col"} ID
+            %th{:scope => "col"} タイトル
+            %th{:scope => "col"} 著者
+            %th{:scope => "col"} ジャンル
+            -# %th{:scope => "col"} この本の登録者数
+        %tbody
+          - @books.each do |book|
+            %tr
+              %th{:scope => "row"} 
+                = book.id
+              %td 
+                = link_to book_path(book) do
+                  = book.title
+              %td
+                = book.author.name
+              %td
+                = book.genre.genre
+              -# - @register.each do |register|
+              -#   %td
+              -#     - if register.book_id == book.id
+              -#       = register.id
+              -#     - else
+              -#       登録者なし
+    - else
+      %h2.books-search__contents__false.ml-5 お探しの本は見つかりませんでした

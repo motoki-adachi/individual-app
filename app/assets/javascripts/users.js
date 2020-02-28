@@ -37,8 +37,8 @@ window.addEventListener("load", function() {
         }
     })
 
-    btx = document.getElementById("barChart").getContext('2d')
-    barChart = new Chart(btx, {
+    ctx = document.getElementById("barChart").getContext('2d')
+    barChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: gon.count_period,

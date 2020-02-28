@@ -48,11 +48,10 @@
                       = reading_book.book.title
                     %td
                       = reading_book.book.author.name
-
             #v-pills-profile.tab-pane.fade.p2.d-flex.reading-contents{"aria-labelledby" => "v-pills-profile-tab", :role => "tabpanel"}
               .chart
                 %canvas#barChart{:height => "400", :width => "400"}
                   :javascript
                     draw_graph();
+
             #v-pills-messages.tab-pane.fade.p3.graph{"aria-labelledby" => "v-pills-messages-tab", :role => "tabpanel"}
-            #v-pills-settings.tab-pane.fade.p4.graph{"aria-labelledby" => "v-pills-settings-tab", :role => "tabpanel"}

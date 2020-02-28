@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @books = Book.search(params[:keyword])
+    @search_count = @books.count
   end
 
   def show
