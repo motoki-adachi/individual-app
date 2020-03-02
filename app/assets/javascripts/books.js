@@ -4,7 +4,7 @@ $(function(){
     let html = `
     <div class="book-search">
       <div class="book-search__name">${author.name}</div>
-      <div class="book-search__item author__btn--add" data-author-id="${author.id}" data-author-name="${author.name}">追加</div>
+      <div class="book-search__item author__btn--add" data-author-id="${author.id}" data-author-name="${author.name}">選択</div>
     </div>`;
     $('#author-search-result').append(html);
   }
@@ -17,6 +17,14 @@ $(function(){
     $('#author-search-result').append(html);
   }
 
+  function addValue(dataId){
+    let html = `
+    <div class="books-form__contents__item">
+      <input type="hidden" name="book[author_id]" value="${dataId}">
+    </div>`
+    $('.books-form__contents').append(html)
+  }
+  
   // 登録時の著者インクリメンタルサーチ実装部分--bigin--
 
   $('#author_search_field').on('keyup', function(){
@@ -48,7 +56,8 @@ $(function(){
 
     let dataId = $(this).attr('data-author-id');
     let dataName = $(this).attr('data-author-name');
-    $('#author_search_field').val(dataId);
+    addValue(dataId)
+    $('#author_search_field').val(dataName);
     $('.book-search').parent().remove();
 
   });

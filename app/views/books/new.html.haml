@@ -11,9 +11,9 @@
       .books-form__contents__item
         = f.label :著者, for: "select2", class: "input-value"
         .books-form__contents__item--author
-        = f.text_field :author_id, placeholder: '著者を入力して下さい', id: "author_search_field"
+        = f.text_field :test, placeholder: '著者を入力して、検索結果の「選択」をクリック', id: "author_search_field"
       #author-search-result
-        .form-group.test_layout
+      -# .books-form__contents__item--dataID
       .books-form__contents__item
         = f.label :ジャンル, for: "select3", class: "input-value"
         .books-form__contents__item--genre

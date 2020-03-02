@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @mounth_count_values = Register.where(user_id: current_user.id, status: 1).group("YEAR(created_at)").group("MONTH(created_at)").count.values
     @mounth_count_period = Register.where(user_id: current_user.id, status: 1).group("YEAR(created_at)").group("MONTH(created_at)").count.keys
     @reading_books = Register.where(user_id: current_user.id, status: 1).order("created_at DESC").limit(10)
+    @register_books = Register.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(10)
     gon.count_values = @mounth_count_values
     gon.count_period = @mounth_count_period
     gon.data = genre_count

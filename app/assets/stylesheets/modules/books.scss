@@ -159,28 +159,33 @@
 
 
 .book-wrapper{
-  padding: 100px 0 0 30px;
+  padding-top: 100px;
   background-image: url("https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
   background-size: cover;
-  &__left{
-    
-    &--btn{
+  &__top{
+    width: 85%;
+    margin: 0 auto;
+    align-items: center;
+    &__contents{
+      &__title{
+        width: 60%;
+        font-size: 20px;
+      }
     }
   }
 
-
-
-
-  &__right{
+  &__main{
     height: 100vh;
-    width: 100vw;
-    padding: 0 50px;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 60px;
     &--relation{
       height: calc(100vh - 50%);
-      padding:20px;
-      font-size: 35px;
-      overflow: scroll;
+      width: 50%;
       background-color: gainsboro;
+      margin-right: 15px;
+      padding: 15px ;
+      overflow: scroll;
       &--item{
         .item-image{
           height: 150px;
@@ -197,10 +202,11 @@
 
     }
 
-    &--review{
-      height: calc(100vh - 70%);
+    &--twitter{
+      height: calc(100vh - 50%);
+      width: 50%;
       background-color: gainsboro;
-      margin-top: 20px;
+      margin-left: 15px;
       padding: 15px ;
       overflow: scroll;
       &--content{
@@ -212,17 +218,13 @@
 }
 
 .reading-contents{
-  height: 500px;
-  .chart{
-
-    width: 500px;
-  }
   &__index{
     height: 500px;
     width: 500px;
     margin: 0 auto;
     overflow: scroll;
   }
+
 }
 
 .books-search{
@@ -252,4 +254,20 @@
 .btn-text-3d:active {
   top: 4px;
   text-shadow: none;
+}
+
+.chart{
+  width: 500px;
+  height: 500px;
+}
+
+.piechart-hidden{
+  display: none;
+}
+
+.regist-index{
+    height: 600px;
+  &--lists{
+    overflow: scroll;
+  }
 }

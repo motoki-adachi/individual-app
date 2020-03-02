@@ -23,8 +23,8 @@ class BooksController < ApplicationController
   end
 
   def show
-
     @book = Book.find(params[:id])
+    @books = Book.where(author_id: @book.author_id)
     @tweet = tweet_search(@book.title)
 
   end
@@ -80,6 +80,5 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :author_id, :genre_id, :publisher_id)
-
   end
 end
