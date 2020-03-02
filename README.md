@@ -43,18 +43,26 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |author_id|integer|null: false, foreign_key: true|
+|genre_id|integer|null: false, foreign_key: true|
+|publisher_id|integer|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :author
+- belongs_to :publisher
 - has_many :users, through: :users_books
 - has_many :users_books
+- has_many :genres, through: :book_genres
+- has_many :book_genres
+
+
 
 
 ## authorsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 |details|text||
 
 
@@ -62,26 +70,57 @@ Things you may want to cover:
 - has_many :books
 
 
-## users_booksテーブル
+## user_booksテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|book_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :book
 - belongs_to :user
+- has_many :reviews
 
 
 ## reviewsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body|string||
-|image|string||
+|body|text||
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|book_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :book
+
+
+## genresテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|genre|string|null: false|
+
+### Association
+- has_many :books
+- has_many :book_genres
+
+## publishersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|publisher|string|null: false|
+
+### Association
+- has_many :books
+
+
+## book_genresテーブル
+|Column|Type|Options|
+|------|----|-------|
+|book_id|integer|null: false, foreign_key: true|
+|genre_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :book
+- belongs_to :genre

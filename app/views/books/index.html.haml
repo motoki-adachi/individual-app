@@ -1,0 +1,9 @@
+= render partial: 'books/header'
+
+.top-wrapper
+  .home
+    .login-form
+      = link_to new_user_registration_path, class: "login-item" do
+        新規登録
+      = link_to new_user_session_path, class: "login-item" do
+        ログイン

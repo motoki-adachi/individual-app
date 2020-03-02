@@ -1,0 +1,168 @@
+= render partial: 'books/header'
+
+.top-wrapper
+  #myTabContent.tab-content
+    #home.tab-pane.fade.show.pt-3.active{"aria-labelledby" => "home-tab", :role => "tabpanel"}
+      .row
+        .col-3
+          #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}
+            %a#v-pills-home-tab.nav-link.active{"aria-controls" => "v-pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#v-pills-home", :role => "tab"} 読了グラフ
+            %a#v-pills-profile-tab.nav-link{"aria-controls" => "v-pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-profile", :role => "tab"} 期間別読了グラフ
+            %a#v-pills-messages-tab.nav-link{"aria-controls" => "v-pills-messages", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-messages", :role => "tab"} 登録済み書籍一覧
+            .home__contents
+              .card{:style => "width: 20rem;"}
+                .card-body
+                  %h5.card-title 読んだ本
+                  %p.card-text 
+                    = @readover
+              .card{:style => "width: 20rem;"}
+                .card-body
+                  %h5.card-title 積読本
+                  %p.card-text
+                    = @stock
+              .card{:style => "width: 20rem;"}
+                .card-body
+                  %h5.card-title 欲しい本
+                  %p.card-text
+                    = @wants
+        .col-9
+          #v-pills-tabContent.tab-content.pt-2
+            #v-pills-home.tab-pane.fade.show.active.p1.reading-contents{"aria-labelledby" => "v-pills-home-tab", :role => "tabpanel"}
+              .chart-contents.d-flex
+                .chart.barchart-hidden.indexchart-hidden
+                  %canvas#pieChart{:height => "00", :width => "00", :position => "relative"}
+                    :javascript
+                      ctx = document.getElementById("pieChart").getContext('2d')
+                      pieChart = new Chart(ctx, {
+                          type: 'pie',
+                          data: {
+                              labels: gon.genre,
+                              datasets: [{
+                                  label: 'テスト',
+                                  data: gon.data,
+                                  backgroundColor: [
+                                      'rgba(255, 99, 132, 0.2)',
+                                      'rgba(54, 162, 235, 0.2)',
+                                      'rgba(255, 206, 86, 0.2)',
+                                      'rgba(75, 192, 192, 0.2)',
+                                      'rgba(153, 102, 255, 0.2)',
+                                      'rgba(255, 159, 64, 0.2)',
+                                      'rgba(108, 129, 34, 0.2)',
+                                      'rgba(88, 89, 174, 0.2)'
+                                  ],
+                                  borderColor: [
+                                      'rgba(255,99,132,1)',
+                                      'rgba(54, 162, 235, 1)',
+                                      'rgba(255, 206, 86, 1)',
+                                      'rgba(75, 192, 192, 1)',
+                                      'rgba(153, 102, 255, 1)',
+                                      'rgba(255, 159, 64, 1)',
+                                      'rgba(108, 129, 34, 1)',
+                                      'rgba(88, 89, 174, 1)'
+                                  ],
+                                  borderWidth: 1
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero:true
+                                      }
+                                  }]
+                              }
+                          }
+                      });
+                %table.table.table-striped.reading-contents__index.barchart-hidden.indexchart-hidden
+                  %thead
+                    %tr
+                      %th{:scope => "col"} 最近読んだ本
+                      %th{:scope => "col"} タイトル
+                      %th{:scope => "col"} 著者
+                  %tbody
+                  - @reading_books.each do |reading_book|
+                    %tr
+                      %th{:scope => "row"}
+                        = reading_book.updated_at.strftime("%Y-%m-%d")
+                      %td
+                        = link_to "/books/#{reading_book.book.id}" do
+                          = reading_book.book.title
+                      %td
+                        = reading_book.book.author.name
+            #v-pills-profile.tab-pane.fade.p2.d-flex.reading-contents{"aria-labelledby" => "v-pills-profile-tab", :role => "tabpanel"}
+              .chart.piechart-hidden.indexchart-hidden
+                %canvas#barChart{:height => "500", :width => "500"}
+                  :javascript
+                    btx = document.getElementById("barChart").getContext('2d')
+                    barChart = new Chart(btx, {
+                        type: 'bar',
+                        data: {
+                            labels: gon.count_period,
+                            datasets: [{
+                                data: gon.count_values,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+              %table.table.table-striped.count-index.piechart-hidden.indexchart-hidden
+                %thead
+                  %tr
+                    %th{:scope => "col"} 月別読了グラフ
+                %tbody
+                  - @mounth_count_period.zip(@mounth_count_values) do |mounth_count_period, mounth_count_values|
+                    %tr
+                      %th{:scope => "row"}
+                        = "#{mounth_count_period[0]}年#{mounth_count_period[1]}月"
+                      %td
+                        = "#{mounth_count_values}冊"
+
+            #v-pills-messages.tab-pane.fade.p3.graph.mr-3{"aria-labelledby" => "v-pills-messages-tab", :role => "tabpanel"}
+              %table.table.table-striped.piechart-hidden.barchart-hidden
+                %thead.regist-index
+                  %tr
+                    %th{:scope => "col"} 登録済み書籍一覧
+                    %th{:scope => "col"} タイトル
+                    %th{:scope => "col"} 著者
+                    %th{:scope => "col"} 登録ステータス
+                %tbody.regist-index--lists
+                - @register_books.each do |register_book|
+                  %tr
+                    %th{:scope => "row"}
+                      = register_book.updated_at.strftime("%Y-%m-%d")
+                    %td
+                      = register_book.book.title
+                    %td
+                      = register_book.book.author.name
+                    %td
+                      - if register_book.status == 1
+                        読んだ本
+                      - elsif register_book.status == 2
+                        積読本
+                      - elsif register_book.status == 3
+                        欲しい本
+              = paginate(@register_books)

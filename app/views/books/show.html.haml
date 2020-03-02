@@ -1,0 +1,44 @@
+= render partial: 'books/header'
+
+.book-wrapper
+
+  .book-wrapper__top.d-flex.justify-content-around
+    .book-wrapper__top__contents
+      .book-wrapper__top__contents--title.mt-3
+        .card{:style => "width: 35rem; "}
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              = @book.title
+            
+
+      .book-wrapper__top__contents--author.mt-3
+        .card{:style => "width: 35rem;"}
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              = link_to author_path, class: ".list-group-item__author" do
+                = @book.author.name
+
+    .book-wrapper__top--btn.d-flex.flex-column
+      = link_to register_register_path(@book), class: ".list-group-item__author" do
+        %button.book--btn.btn.btn.btn-primary.btn-lg.mt-3{:type => "button", :style => "width: 20rem; height: 5rem;"} My本棚に入れる
+
+
+  .book-wrapper__main.d-flex.justify-content-around
+    .book-wrapper__main--relation
+      %h3.book-wrapper__main--relation--headline この本の作者の関連作品
+      - @books.each do |book|
+        .book-wrapper__main--relation--item.d-flex
+          %p.book-wrapper__main--relation--item--title
+            = link_to book_path(book) do
+              = book.title
+          %p.book-wrapper__main--relation--item--genre
+            = book.genre.genre
+
+
+
+    .book-wrapper__main--twitter
+      %h3.book-wrapper__main--twitter--headline この作品に関連するツイート
+      - @tweet.each do |tweet|
+        %blockquote.twitter-tweet.tw-align-center{"data-cards" => "hidden", "data-lang" => "ja"}
+          = link_to '',tweet[:tweet_link], target: :_blank
+      = javascript_include_tag '//platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async'
