@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :move_to_index, expect: [:index]
-  before_action :sign_in_vaild, only: [:index]
   require 'open-uri'
 
   def top
@@ -49,10 +48,6 @@ class BooksController < ApplicationController
 
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
-  end
-
-  def sign_in_vaild
-    redirect_to user_path(current_user) if user_signed_in?
   end
 
 
