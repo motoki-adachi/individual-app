@@ -1,13 +1,14 @@
 class Book < ApplicationRecord
   validates :title, uniqueness: true
+  validates :author_id, :genre_id, :publisher_id, presence: true
 
   has_many :user_books
   has_many :users, through: :user_books
-  belongs_to :genre
   has_many :registers
-  # has_many :book_genres
-  belongs_to :author
-  belongs_to :publisher
+
+  belongs_to :genre, optional: true
+  belongs_to :author, optional: true
+  belongs_to :publisher, optional: true
 
   def self.search(search)
     return Book.all unless search

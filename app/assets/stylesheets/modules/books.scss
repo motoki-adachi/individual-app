@@ -55,17 +55,13 @@
       margin-left: 20px;
     }
 }
-
-
-// あとで消す
-
 .books-form{
   height: 100%;
   width: 100vw;
-  background-image: url("https://images.unsplash.com/photo-1463320726281-696a485928c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  background:  linear-gradient(-225deg, rgba(251, 252, 252, 0.7) 10%, rgba(194, 232, 247, 0.7) 80%),
+  url("https://images.unsplash.com/photo-1463320726281-696a485928c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
   background-size: cover;
   padding-top: 100px;
-  color: white;
 
   &__contents{
     width: 600px;
