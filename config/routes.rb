@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show]
-  resources :authors, only: [:show]
   resources :registers, only: [:create] do
     member do
       get :register

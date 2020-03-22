@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  validates :title, uniqueness: true
+  validates :title, presence: true, uniqueness: true
   validates :author_id, :genre_id, :publisher_id, presence: true
 
   has_many :user_books

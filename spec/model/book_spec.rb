@@ -5,7 +5,7 @@ describe Book do
 
     it "is invalid without a title" do
       book = build(:book , title: nil)
-      .valid?
+      book.valid?
       expect(book.errors[:title]).to include("can't be blank")
     end
 
@@ -33,9 +33,7 @@ describe Book do
     end
 
     it "is invalid with a duplicate title" do
-      #はじめにユーザーを登録
       book = create(:book)
-      #先に登録したユーザーと同じemailの値を持つユーザーのインスタンスを作成
       another_book = build(:book)
       another_book.valid?
       expect(another_book.errors[:title]).to include("has already been taken")

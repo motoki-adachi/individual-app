@@ -47,7 +47,11 @@ class BooksController < ApplicationController
   private
 
   def move_to_index
-    redirect_to new_user_session_path unless user_signed_in?
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
 
