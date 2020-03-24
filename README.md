@@ -59,7 +59,7 @@ http://13.114.232.15
 |password|string|null: false|
 
 ### Association
-- has_many :reviews
+- has_many :regsters
 - has_many :books, through: :users_books
 - has_many :users_books
 
@@ -68,28 +68,25 @@ http://13.114.232.15
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|author_id|integer|null: false, foreign_key: true|
+|title|string|null: false|
+|image|string||
 |genre_id|integer|null: false, foreign_key: true|
 |publisher_id|integer|null: false, foreign_key: true|
-
+|author_id|integer|null: false, foreign_key: true|
 
 ### Association
+- belongs_to :genre
 - belongs_to :author
 - belongs_to :publisher
 - has_many :users, through: :users_books
 - has_many :users_books
 - has_many :genres, through: :book_genres
-- has_many :book_genres
-
-
-
 
 ## authorsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true|
 |details|text||
 
 
@@ -100,54 +97,43 @@ http://13.114.232.15
 ## user_booksテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|book_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|book_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :book
 - belongs_to :user
-- has_many :reviews
-
-
-## reviewsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|body|text||
-|user_id|integer|null: false, foreign_key: true|
-|book_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :book
 
 
 ## genresテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|genre|string|null: false|
+|genre|string|null: false, unique: true|
 
 ### Association
 - has_many :books
-- has_many :book_genres
+- has_many :registers
 
 ## publishersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|publisher|string|null: false|
+|publisher|string|null: false, unique: true|
 
 ### Association
 - has_many :books
 
 
-## book_genresテーブル
+## regustersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|book_id|integer|null: false, foreign_key: true|
-|genre_id|integer|null: false, foreign_key: true|
+|status|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+|book_id|references|null: false, foreign_key: true|
+|genre_id|references|null: false, foreign_key: true|
 
 ### Association
+- belongs_to :user
 - belongs_to :book
 - belongs_to :genre
