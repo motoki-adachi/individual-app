@@ -63,12 +63,17 @@ http://13.114.232.15
 # 実装内容紹介
 
 * ユーザーのマイページ上でジャンル別・月別のグラフを作成し見える化しています。
-* <img width="1440" alt="スクリーンショット 2020-03-24 20 09 16" src="https://user-images.githubusercontent.com/59963342/77419231-6c5dbe80-6e0b-11ea-86e8-f797bedaa9cf.png">
-
+* ![6e849ffb22fd2fe74477f340e3b23e1b](https://user-images.githubusercontent.com/59963342/77434849-d46cce80-6e24-11ea-9708-b388b79ecb7d.gif)
 
 * 登録されていない本はユーザー側で、登録することが可能になっています。
 * 登録時に作者名をインクリメンタルサーチで検索できるようになっています(日本の小説家で1,500人程/スクレイピングを使用)
 * ![demo](https://user-images.githubusercontent.com/59963342/77432352-49d6a000-6e21-11ea-9228-ba7be59d0df7.gif)
+
+* 本の詳細ページにはTwitterAPIを使用して、本のタイトルに紐づくツイートを表示させています。。
+* ![f50d81e53d7335ec5993b5d715337f8b](https://user-images.githubusercontent.com/59963342/77435249-6b398b00-6e25-11ea-9940-7531d290d7aa.gif)
+
+
+
 
 ## usersテーブル
 
