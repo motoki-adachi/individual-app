@@ -60,7 +60,8 @@ http://13.114.232.15
 * Scss
 
 
-* https://gyazo.com/ccb235b2331e3963d06b9947ad68084f
+* ![Uploading スクリーンショット 2020-03-24 20.09.16.png…]()
+* <img width="1440" alt="スクリーンショット 2020-03-24 20 09 16" src="https://user-images.githubusercontent.com/59963342/77419231-6c5dbe80-6e0b-11ea-86e8-f797bedaa9cf.png">
 
 ## usersテーブル
 
