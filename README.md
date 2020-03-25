@@ -48,6 +48,9 @@ http://13.114.232.15
 * ![f50d81e53d7335ec5993b5d715337f8b](https://user-images.githubusercontent.com/59963342/77435249-6b398b00-6e25-11ea-9940-7531d290d7aa.gif)
 
 
+# ER図
+* ![ホッケー ERD](https://user-images.githubusercontent.com/59963342/77494336-d6687900-6e88-11ea-8e65-f590e0f3ddb5.jpeg)
+
 
 
 ## usersテーブル
@@ -57,6 +60,7 @@ http://13.114.232.15
 |name|string|null: false|
 |email|string|null: false, add_index :users, :email, unique: true|
 |password|string|null: false|
+|encrypted_password|string|null: false|
 
 ### Association
 - has_many :regsters
