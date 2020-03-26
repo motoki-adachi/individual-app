@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :move_to_index, expect: [:index]
+  before_action :move_to_index
   require 'open-uri'
 
   def top
@@ -12,13 +12,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    return nil if params[:keyword] == ""
-    @books = Book.where(['name LIKE ?', "%#{params[:keyword]}%"] )
-    respond_to do |format|
-      format.html
-      format.json
-    end
-
+    @books = Book.search(params[:keyword]).page(params[:page]).per(10)
+    @search_count = @books.count
   end
 
   def show

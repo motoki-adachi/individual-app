@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
+  before_action :move_to_sign_in
   before_action :read_count
+
   
-
-  def index
-    @books = Book.search(params[:keyword])
-    @search_count = @books.count
-  end
-
   def show
     @mounth_count = Register.where(user_id: current_user.id, status: 1).group("YEAR(created_at)").group("MONTH(created_at)").count
     @mounth_count_values = Register.where(user_id: current_user.id, status: 1).group("YEAR(created_at)").group("MONTH(created_at)").count.values
@@ -24,6 +20,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 
   def read_count
     @register = Register.where(user_id: current_user.id)

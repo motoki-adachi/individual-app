@@ -2,7 +2,7 @@
   .header__logo Memory Books
 
   .search-box
-    = form_with url: users_path, method: :get, local: true do |f|
+    = form_with url: books_path, method: :get, local: true do |f|
       .search-box__form.d-flex.mt-2
         = f.text_field :keyword, placeholder: 'キーワードを入力してください', class: "form-control mr-sm-2 search-box__form--text", :size => "31"
         = f.submit :Search, class: "btn btn-outline-dark my-2 my-sm-0 search-box__form--btn"
