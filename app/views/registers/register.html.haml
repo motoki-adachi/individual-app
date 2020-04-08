@@ -12,6 +12,7 @@
         = @book.author.name
       .books-form__contents__item
         = f.label :ジャンル, for: "select3", class: "input-value"
+        = @book.genre.genre
       .books-form__contents__item
         = f.label :出版社, for: "select4", class: ".input-value"
         = @book.publisher.publisher
@@ -27,5 +28,3 @@
 
       .books-form__contents__item
         = f.submit :登録する, class: "submit"
-
-
