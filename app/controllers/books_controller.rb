@@ -13,7 +13,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.search(params[:keyword]).page(params[:page]).per(10)
-    @search_count = @books.count
   end
 
   def show

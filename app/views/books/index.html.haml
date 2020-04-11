@@ -3,7 +3,7 @@
 .books-search
   .books-search__result
     %h1.books-search__result--left
-      = "検索結果#{@search_count}件HITしました。"
+      = "検索結果#{@books.count}件HITしました。"
     .books-search__result--right
       お探しの本が無い場合 →
       %a.btn-text-3d{:href => new_book_path }
