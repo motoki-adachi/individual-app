@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :new, :create, :show] do
     collection do
       get :top
-      get :search
     end
   end
   resources :users, only: [:show]
