@@ -2,12 +2,6 @@
   .header__logo Memory Books
 
   .search-box
-    = form_with url: books_path, method: :get, local: true do |f|
-      .search-box__form.d-flex.mt-2
-        = f.text_field :keyword, placeholder: 'キーワードを入力してください', class: "form-control mr-sm-2 search-box__form--text", :size => "31"
-        = f.submit :Search, class: "btn btn-outline-dark my-2 my-sm-0 search-box__form--btn"
-
-  .search-box
   %nav.navbar.navbar-light.d-flex
   %form.form-inline{:action => "http://www.google.co.jp/search", :method => "get"}
     %table
@@ -21,6 +15,7 @@
             %option{:name => "sitesearch", :value => "http://www.google.co.jp/search", class: "sitesearch"} Google検索
             %option{:name => "sitesearch", :value => "http://13.114.232.15//books", class: "sitesearch"} サイト内検索
           %input.btn.btn-outline-dark.my-2.my-sm-0{:name => "btnG", :type => "submit", :value => "Search"}/
+
 
   .header__contents.d-flex
     - if user_signed_in?
