@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @mounth_count_values = Register.mounth_count(current_user.id, 1).values
     @mounth_count_period = Register.mounth_count(current_user.id, 1).keys
     @reading_books = Register.reading_books(current_user.id, 1)
-    @register_books = Register.register_books(current_user.id)
+    @register_books = Register.register_books(current_user.id).page(params[:page]).per(10)
     gon.count_values = @mounth_count_values
     gon.count_period = @mounth_count_period
     gon.data = genre_count
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
-
   def read_count
     @register = Register.where(user_id: current_user.id)
     @readover = @register.where(status: 1).count
@@ -34,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def genre_count
-    @genre_count = Register.where(user_id: current_user.id, status: 1).pluck(:genre_id).group_by(&:itself).transform_values(&:size).values
+    @genre_count = Register.genre_count(current_user.id, 1)
   end
 
   def genre_fish

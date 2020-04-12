@@ -14,7 +14,11 @@ class Register < ApplicationRecord
   end
 
   def self.register_books(current_user_id)
-    Register.where(user_id: current_user_id, status: register_status).order("created_at DESC").page(params[:page]).per(10)
+    Register.where(user_id: current_user_id).order("created_at DESC")
+  end
+
+  def self.genre_count(current_user_id, register_status)
+    Register.where(user_id: current_user_id, status: register_status).pluck(:genre_id).group_by(&:itself).transform_values(&:size).values
   end
 
 end
