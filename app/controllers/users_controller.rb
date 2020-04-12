@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def genre_fish
     @regist_genre = []
-    @genre_ids = Register.where(user_id: current_user, status: 1).pluck(:genre_id).group_by(&:itself).keys
+    @genre_ids = Register.genre_ids(current_user.id, 1)
     @genre_ids.each do |genre|
       @regist_genre << Genre.find_by(id: genre).genre
     end

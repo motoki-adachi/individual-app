@@ -21,4 +21,8 @@ class Register < ApplicationRecord
     Register.where(user_id: current_user_id, status: register_status).pluck(:genre_id).group_by(&:itself).transform_values(&:size).values
   end
 
+  def self.genre_ids(current_user_id, register_status)
+    Register.where(user_id: current_user_id, status: register_status).pluck(:genre_id).group_by(&:itself).keys
+  end
+
 end
