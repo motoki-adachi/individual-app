@@ -9,5 +9,12 @@ class Register < ApplicationRecord
     Register.where(user_id: current_user_id, status: register_status).group("YEAR(created_at)").group("MONTH(created_at)").count
   end
 
-  
+  def self.reading_books(current_user_id, register_status)
+    Register.where(user_id: current_user_id, status: register_status).order("created_at DESC").limit(10)
+  end
+
+  def self.register_books(current_user_id)
+    Register.where(user_id: current_user_id, status: register_status).order("created_at DESC").page(params[:page]).per(10)
+  end
+
 end

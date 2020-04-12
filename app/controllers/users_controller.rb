@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @mounth_count = Register.mounth_count(current_user.id, 1)
     @mounth_count_values = Register.mounth_count(current_user.id, 1).values
     @mounth_count_period = Register.mounth_count(current_user.id, 1).keys
-    @reading_books = Register.where(user_id: current_user.id, status: 1).order("created_at DESC").limit(10)
-    @register_books = Register.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(10)
+    @reading_books = Register.reading_books(current_user.id, 1)
+    @register_books = Register.register_books(current_user.id)
     gon.count_values = @mounth_count_values
     gon.count_period = @mounth_count_period
     gon.data = genre_count
