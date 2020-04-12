@@ -19,7 +19,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @books = Book.where(author_id: @book.author_id)
     @tweet = tweet_search(@book.title)
-
   end
   
   def new
