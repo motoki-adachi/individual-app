@@ -3,38 +3,50 @@ class BooksController < ApplicationController
   require 'open-uri'
 
   def top
+
     return nil if params[:keyword] == ""
     @authors = Author.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+
     respond_to do |format|
       format.html
       format.json
     end
   end
 
+
   def index
+
     @books = Book.search(params[:q]).page(params[:page]).per(10)
   end
 
+
   def show
+
     @book = Book.find(params[:id])
     @books = Book.where(author_id: @book.author_id)
     @tweet = tweet_search(@book.title)
+
   end
   
   def new
+
     @author = Author.where(['name LIKE ?', "%#{params[:keyword]}%"] )
     @book = Book.new
     @genres = Genre.all
     @publisher = Publisher.all
+
   end
 
   def create
+
     @book = Book.new(book_params)
+
     if @book.save
       redirect_to book_path(@book)
     else
       redirect_to user_path(current_user)
     end
+
   end
 
   private
