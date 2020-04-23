@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     @reading_books = Register.reading_books(current_user.id, 1)
     @register_books = Register.register_books(current_user.id).page(params[:page]).per(10)
+
     respond_to do |format|
       format.html
       format.js
