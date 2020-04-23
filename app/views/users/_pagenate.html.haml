@@ -1,0 +1,32 @@
+#v-pills-messages.tab-pane.fade.p3.graph.mr-3.pagenate{"aria-labelledby" => "v-pills-messages-tab", :role => "tabpanel"}
+  %ul.nav.nav-tabs
+    %li.nav-item
+      %a.nav-link.active{:href => "#!"} Active
+    %li.nav-item
+      %a.nav-link{:href => "#!"} Link
+    %li.nav-item
+      %a.nav-link{:href => "#!"} Link
+  %table.table.table-striped.piechart-hidden.barchart-hidden
+    %thead.regist-index
+      %tr
+        %th{:scope => "col"} 登録済み書籍一覧
+        %th{:scope => "col"} タイトル
+        %th{:scope => "col"} 著者
+        %th{:scope => "col"} 登録ステータス
+    %tbody.regist-index--lists
+    - @register_books.each do |register_book|
+      %tr
+        %th{:scope => "row"}
+          = register_book.updated_at.strftime("%Y-%m-%d")
+        %td
+          = register_book.book.title
+        %td
+          = register_book.book.author.name
+        %td
+          - if register_book.status == 1
+            読んだ本
+          - elsif register_book.status == 2
+            積読本
+          - elsif register_book.status == 3
+            欲しい本
+  = paginate @register_books, remote: true
