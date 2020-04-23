@@ -1,9 +1,9 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-  height: 100vh;
-}
+// body{
+//   height: 100%;
+// }
 
 .header{
   height: 60px;
@@ -29,7 +29,7 @@ body{
 }
 
 .top-wrapper{
-  height: 100vh;
+  height: 100%;
   padding-top: 60px;
   background:  linear-gradient(-225deg, rgba(251, 252, 252, 0.7) 10%, rgba(248, 248, 248, 0.7) 80%),
   url("https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @mounth_count_period = Register.mounth_count(current_user.id, 1).keys
     @reading_books = Register.reading_books(current_user.id, 1)
     @register_books = Register.register_books(current_user.id).page(params[:page]).per(10)
+    @register_count = Register.register_books(current_user.id).count
     gon.count_values = @mounth_count_values
     gon.count_period = @mounth_count_period
     gon.data = genre_count
@@ -43,6 +44,10 @@ class UsersController < ApplicationController
       @regist_genre << Genre.find_by(id: genre).genre
     end
     return @regist_genre
+  end
+
+  def pagenate
+
   end
 
 end

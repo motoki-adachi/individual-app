@@ -80,14 +80,19 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
 gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
 gem 'haml-rails'
 gem 'erb2haml'
+
 gem 'pry-rails'
+
 gem 'font-awesome-sass'
 gem 'bootstrap'
+
 gem 'jquery-rails'
-# gem "jquery-ui-rails"
 
 gem 'twitter'
 gem 'mechanize'
