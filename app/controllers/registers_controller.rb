@@ -1,5 +1,4 @@
 class RegistersController < ApplicationController
-
   def register
     @book = Book.find(params[:id])
     @register = Register.new
@@ -9,7 +8,7 @@ class RegistersController < ApplicationController
     @book = Book.find(params[:id])
     @exist = Register.find_by(book_id: params[:id], user_id: current_user.id)
     @register = Register.new(register_params)
-    if @exist == nil
+    if @exist.nil?
       @register.save
       redirect_to user_path(current_user)
     else
@@ -19,15 +18,13 @@ class RegistersController < ApplicationController
     end
   end
 
-private
+  private
 
   def register_params
     params.require(:register)
           .permit(:status)
-          .merge(user_id: current_user.id, 
-                book_id: @book.id,
-                genre_id: @book.genre_id
-                )
+          .merge(user_id: current_user.id,
+                 book_id: @book.id,
+                 genre_id: @book.genre_id)
   end
-
 end

@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   before_action :move_to_sign_in
   before_action :read_count
 
-  
   def show
-
     @mounth_count = Register.mounth_count(current_user.id, 1)
     @mounth_count_values = Register.mounth_count(current_user.id, 1).values
     @mounth_count_period = Register.mounth_count(current_user.id, 1).keys
@@ -16,7 +14,7 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
-    
+
     @register_count = Register.register_books(current_user.id).count
 
     gon.count_values = @mounth_count_values
@@ -26,7 +24,6 @@ class UsersController < ApplicationController
     6.times do
       gon.data
     end
-
   end
 
   private
@@ -52,11 +49,8 @@ class UsersController < ApplicationController
     @genre_ids.each do |genre|
       @regist_genre << Genre.find_by(id: genre).genre
     end
-    return @regist_genre
+    @regist_genre
   end
 
-  def pagenate
-
-  end
-
+  def pagenate; end
 end

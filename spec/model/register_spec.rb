@@ -2,9 +2,8 @@ require 'rails_helper'
 
 describe Register do
   describe '#create' do
-
     it "is invalid without a book_id" do
-      register = build(:register , book_id: nil)
+      register = build(:register, book_id: nil)
       register.valid?
       expect(register.errors[:book_id]).to include("can't be blank")
     end
@@ -31,6 +30,5 @@ describe Register do
       register = build(:register)
       expect(register).to be_valid
     end
-
   end
 end

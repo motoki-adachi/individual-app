@@ -2,9 +2,8 @@ require 'rails_helper'
 
 describe Book do
   describe '#create' do
-
     it "is invalid without a title" do
-      book = build(:book , title: nil)
+      book = build(:book, title: nil)
       book.valid?
       expect(book.errors[:title]).to include("can't be blank")
     end
@@ -38,6 +37,5 @@ describe Book do
       another_book.valid?
       expect(another_book.errors[:title]).to include("has already been taken")
     end
-
   end
 end
