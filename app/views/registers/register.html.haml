@@ -2,7 +2,7 @@
 
 
 .books-form
-  = form_for(@register, url: "/registers/#{@book.id}/register_create") do |f|
+  = form_with model: @register, url: register_create_register_path(@book), local: true do |f|
     .books-form__contents
       .books-form__contents__item
         = f.label :タイトル, for: "select1", class: "input-value"

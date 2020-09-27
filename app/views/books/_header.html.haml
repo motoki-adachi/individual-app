@@ -22,16 +22,16 @@
             %option{:name => "sitesearch", :value => "http://13.114.232.15//books", class: "sitesearch"} サイト内検索
           %input.btn.btn-outline-dark.my-2.my-sm-0{:name => "btnG", :type => "submit", :value => "Search"}/
 
-  .header__contents.d-flexÏ
-    - if user_signed_in?
-      .header__contents__name.header-item
-        = current_user.name
-      = link_to user_path(current_user), class: "header__contents__user-show header-item" do
-        マイページ
-      = link_to destroy_user_session_path, class: "header__contents__loout header-item", method: 'delete' do
-        ログアウト
-    - else
-      = link_to new_user_registration_path, class: "header__contents__signup header-item" do
-        新規登録
-      = link_to new_user_session_path, class: "header__contents__login header-item" do
-        ログイン
+  -# .header__contents.d-flexÏ
+  -#   - if user_signed_in?
+  -#     .header__contents__name.header-item
+  -#       = current_user.name
+  -#     = link_to user_path(current_user), class: "header__contents__user-show header-item" do
+  -#       マイページ
+  -#     = link_to destroy_user_session_path, class: "header__contents__loout header-item", method: 'delete' do
+  -#       ログアウト
+  -#   - else
+  -#     = link_to new_user_registration_path, class: "header__contents__signup header-item" do
+  -#       新規登録
+  -#     = link_to new_user_session_path, class: "header__contents__login header-item" do
+  -#       ログイン
